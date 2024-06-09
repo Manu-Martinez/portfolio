@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import projects from "../projectsData"
 ---
 
 <Layout>
@@ -17,19 +18,10 @@ import ProjectCard from '../components/ProjectCard.astro';
   <section id="projects" class="section">
     <div class="container">
       <h2>Projects</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <ProjectCard 
-          frontContent="Project 1" 
-          backContent="Description of Project 1. This project involves..."
-        />
-        <ProjectCard 
-          frontContent="Project 2" 
-          backContent="Description of Project 2. This project focuses on..."
-        />
-        <ProjectCard 
-          frontContent="Project 3" 
-          backContent="Description of Project 3. The main features include..."
-        />
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
       </div>
     </div>
   </section>
