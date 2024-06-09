@@ -1,0 +1,21 @@
+---
+// src/layouts/Layout.astro
+// This layout wraps the content with common HTML structure
+import "../styles/global.css";
+import Nav from '../components/nav/Nav.astro';
+
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Web Developer Portfolio</title>
+  </head>
+  <body>
+	<Nav />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!-- src/components/ProjectCard.astro -->
+---
+const { frontContent, backContent } = Astro.props;
+---
+
+<div class="card">
+  <div class="card-inner">
+    <div class="card-front">
+      {frontContent}
+    </div>
+    <div class="card-back">
+      {backContent}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout>
+  
+  
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I'm a passionate web developer with expertise in HTML, CSS, JavaScript, and more. I love creating responsive, user-friendly websites that make an impact.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <ProjectCard 
+          frontContent="Project 1" 
+          backContent="Description of Project 1. This project involves..."
+        />
+        <ProjectCard 
+          frontContent="Project 2" 
+          backContent="Description of Project 2. This project focuses on..."
+        />
+        <ProjectCard 
+          frontContent="Project 3" 
+          backContent="Description of Project 3. The main features include..."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Want to work together or just say hi? Feel free to get in touch!</p>
+      <a href="mailto:john@example.com">Email</a>
+      <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
+      <a href="https://github.com/johndoe">GitHub</a>
+    </div>
+  </section>
+</Layout>
