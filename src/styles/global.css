@@ -275,5 +275,92 @@ html {
   }
   
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+  
+  .modal-content {
+	background-color: ;
+	margin: 15% auto;
+	padding: 20px;
+	border: none;
+	border-radius: 10px;
+	position: relative;
+	width: 80%;
+	max-width: 400px;
+	text-align: center;
+	filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15));
+  }
 
+  .modal-content::before {
+    content: "";
+    position: absolute;
+    top: -25px; /* Adjust tab position */
+    left: 10%;
+    transform: translateX(-50%);
+    width: 100px; /* Adjust the width of the trapezoid */
+    height: 30px; /* Adjust the height of the trapezoid */
+    background-color: #0078d4; /* Windows folder tab color */
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* Define inverted trapezoid shape */
+    z-index: 1; /* Ensure tab is above modal content */
+}
+
+.modal-content::after {
+    content: "";
+    position: absolute;
+    top: -10px; /* Adjust rectangle position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 40px); /* Adjust rectangle width */
+    height: calc(100% + 20px); /* Adjust rectangle height */
+    border: 1px solid #0078d4; /* Border color of the rectangle */
+    border-radius: 10px; /* Border radius of the rectangle */
+    z-index: -1; /* Ensure rectangle is below modal content */
+	box-shadow: 0 0 0 20px #0078d4 inset; /* Border color of the rectangle */
+}
+  
+  .close {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  /* Radio buttons styling */
+  input.variation {
+	display: none;
+  }
+  input.variation + label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: white;
+  }
+  input.variation:checked + label .circle {
+	background: white;
+	box-shadow: inset 0 0 0 3px #3c1053;
+  }
+  input.variation + label .circle {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	border: 3px solid white;
+  }
   
