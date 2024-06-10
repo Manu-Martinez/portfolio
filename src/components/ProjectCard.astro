@@ -4,31 +4,59 @@
 const { project } = Astro.props;
 ---
 
-<div class="project-card">
-  <h3>{project.name}</h3>
-  <p>{project.description}</p>
-  <a href={project.html_url} target="_blank">{project.name}</a>
+<div class="card [ is-collapsed ]">
+  <div class="card__inner [ js-expander ]">
+    <span>{project.name}</span>
+    <i class="fa fa-folder-o"></i>
+  </div>
+  <div class="card__expander">
+    <i class="fa fa-close [ js-collapser ]"></i>
+    <img src={project.thumbnailUrl} alt={project.name} />
+    <p>{project.description}</p>
+    <a href={project.html_url} target="_blank">{project.name}</a>
+  </div>
 </div>
 
-<style>
-  .project-card {
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 8px;
-    margin: 16px;
-    background-color: #fff;
-  }
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cells = document.querySelectorAll('.card');
 
-  .project-card h3 {
-    margin: 0 0 8px 0;
-  }
+    cells.forEach(cell => {
+      const expander = cell.querySelector('.js-expander');
+      const collapser = cell.querySelector('.js-collapser');
 
-  .project-card a {
-    color: #007acc;
-    text-decoration: none;
-  }
+      if (expander) {
+        expander.addEventListener('click', function() {
+          if (cell.classList.contains('is-collapsed')) {
+            cells.forEach(otherCell => {
+              if (otherCell !== cell) {
+                otherCell.classList.remove('is-expanded');
+                otherCell.classList.add('is-collapsed');
+                otherCell.classList.add('is-inactive');
+              }
+            });
+            cell.classList.remove('is-collapsed');
+            cell.classList.add('is-expanded');
 
-  .project-card a:hover {
-    text-decoration: underline;
-  }
-</style>
+            if (![...cells].some(otherCell => otherCell.classList.contains('is-expanded'))) {
+              cells.forEach(otherCell => otherCell.classList.remove('is-inactive'));
+            }
+          } else {
+            cell.classList.remove('is-expanded');
+            cell.classList.add('is-collapsed');
+            cells.forEach(otherCell => otherCell.classList.remove('is-inactive'));
+          }
+        });
+      }
+
+      if (collapser) {
+        collapser.addEventListener('click', function() {
+          cell.classList.remove('is-expanded');
+          cell.classList.add('is-collapsed');
+          cells.forEach(otherCell => otherCell.classList.remove('is-inactive'));
+        });
+      }
+    });
+  });
+</script>
+

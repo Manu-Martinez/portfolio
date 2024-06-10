@@ -1,96 +1,236 @@
 /* src/styles/global.css */
 html {
 	scroll-behavior: smooth;
-}  
+  }
+  
+  body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #142b4d;
+  }
+  
+  .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+  }
+  
+  nav ul {
+	list-style-type: none;
+	padding: 0;
+  }
+  
+  nav ul li {
+	display: inline;
+	margin-right: 20px;
+  }
+  
+  nav ul li a {
+	color: #fff;
+	text-decoration: none;
+  }
+  
+  .section {
+	padding: 50px 0;
+  }
+  
+  .project {
+	margin-bottom: 30px;
+  }
+  
+  footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px 0;
+  }
+  
+  /* Expanding Card Grid Styles */
+  .card {
+	margin: 15px;
+	width: 250px; /* Set a fixed width for the card */
+	height: 350px; /* Set a fixed height for the card */
+	transition: all 0.2s ease-in-out;
+	display: inline-flex;
+	vertical-align: top; /* Align cards at the top */
+	box-sizing: border-box;
+  }
+  
+  .card__inner {
+	margin: 15px;
+	width: 250px;
+	height: 350px;
+	padding: 30px;
+	position: relative;
+	cursor: pointer;
+	background-color: #b3b3b3;
+	color: #eceef1;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+  }
+  
+  .card__inner:after {
+	transition: all 0.3s ease-in-out;
+  }
+  
+  .card__inner .fa {
+	width: 100%;
+	margin-top: .25em;
+  }
+  
+  .card__expander {
+	transition: all 0.2s ease-in-out;
+	background-color: #595959;
+	margin: 15px;
+	width: 310px; /* Keep the expander the same width as the card */
+	position: absolute;
+	top: 100%; /* Position the expander directly below the card */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	color: #eceef1;
+	font-size: 1.5em;
+	max-height: 0; /* Start with a collapsed height */
+	overflow: hidden; /* Hide overflow content */
+  }
+  
+  .card__expander .fa {
+	font-size: 0.75em;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+  }
+  
+  .card__expander .fa:hover {
+	opacity: 0.9;
+  }
+  
+  .card__expander img {
+	max-width: 100%;
+	margin-bottom: 10px;
+  }
+  
+  .card__expander p {
+	margin: 10px 0;
+  }
+  
+  .card__expander a {
+	color: #007acc;
+	text-decoration: none;
+	margin-top: 10px;
+  }
+  
+  .card__expander a:hover {
+	text-decoration: underline;
+  }
+  
+  .card.is-collapsed .card__inner:after {
+	content: "";
+	opacity: 0;
+  }
+  
+  .card.is-collapsed .card__expander {
+	max-height: 0;
+	min-height: 0;
+	overflow: hidden;
+	margin-top: 0;
+	opacity: 0;
+  }
+  
+  .card.is-expanded .card__inner {
+	background-color: #1abc9c;
+  }
+  
+  .card.is-expanded .card__inner:after {
+	content: "";
+	opacity: 1;
+	display: block;
+	height: 0;
+	width: 0;
+	position: absolute;
+	bottom: -30px;
+	left: calc(50% - 15px);
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #333a45;
+  }
+  
+  .card.is-expanded .card__inner .fa:before {
+	content: "\f115";
+  }
+  
+  .card.is-expanded .card__expander {
+	max-height: 500px; /* Increase max-height to accommodate expanded content */
+	min-height: 200px; /* Set a minimum height for the expander */
+	overflow: visible;
+	margin-top: 30px;
+	opacity: 1;
+  }
+  
+  .card.is-expanded .card__inner:hover {
+	transform: scale(1);
+  }
+  
+  .card.is-inactive .card__inner {
+	pointer-events: none;
+	opacity: 0.5;
+  }
+  
+  .card.is-inactive .card__inner:hover {
+	background-color: #b3b3b3;
+	transform: scale(1);
+  }
+  
+  @media screen and (max-width: 991px) {
+	.card {
+	  width: 100%; /* Adjust to full width on smaller screens */
+	}
+  }
+  
+  @media screen and (max-width: 767px) {
+	.card {
+	  width: 100%; /* Adjust to full width on smaller screens */
+	}
+  }
+  
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-	background-color: #142B4D;
-}
+  //when 3 cards in a row
+@media screen and (min-width: 992px) {
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.section {
-    padding: 50px 0;
-}
-
-.project {
-    margin-bottom: 30px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.card {
-    perspective: 1000px;
-    width: 300px;
-    height: 200px;
-    margin: 20px;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-}
-
-.card-front {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-}
-
-.card-back {
-    background-color: #fff;
-    color: #333;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    padding: 20px;
-    box-sizing: border-box;
-}
+	.card:nth-of-type(3n+2) .card__expander {
+	  margin-left: calc(-100% - 30px);
+	}
+	.card:nth-of-type(3n+3) .card__expander {
+	  margin-left: calc(-200% - 60px);
+	}
+	.card:nth-of-type(3n+4) {
+	  clear: left;
+	}
+	.card__expander {
+	  width: calc(300% + 60px);
+	}
+  
+  }
+  
+  //when 2 cards in a row
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+  
+	.card:nth-of-type(2n+2) .card__expander {
+	  margin-left: calc(-100% - 30px);
+	}
+	.card:nth-of-type(2n+3) {
+	  clear: left;
+	}
+	.card__expander {
+	  width: calc(200% + 30px);
+	}
+  
+  }
+  
+  
