@@ -2,7 +2,7 @@
 import NavBtn from "./NavBtn.astro";
 ---
 
-<nav class="fixed flex justify-center top-5 h-fit w-full z-50 nav">
+<nav class="fixed flex justify-center top-5 h-fit w-full z-[50] nav">
   <div class="h-10 w-[.15rem] bg-gradient-to-b from-transparent via-amber-300 to-transparent"></div>
   <div class="navBtns flex justify-around items-center overflow-hidden w-64 md:w-96 bg-[#f8fafc15] filter backdrop-blur-sm">
     <NavBtn to="/#">Home</NavBtn>
@@ -20,6 +20,9 @@ import NavBtn from "./NavBtn.astro";
     animation-iteration-count: 1;
   }
 
+  .hidden {
+    display: none;
+  }
   @keyframes nav {
     0% {
       opacity: 0;

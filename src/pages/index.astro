@@ -1,14 +1,17 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/nav/Nav.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import projects from "../projectsData";
 import '../styles/global.css';
 ---
 
+
+
+
 <Layout>
-  
-  
+	<Nav></Nav>
   <section id="about" class="section">
     <div class="container">
       <h2>About Me</h2>
@@ -21,7 +24,7 @@ import '../styles/global.css';
       <h2>Projects</h2>
       <div class="cards">
         {projects.map((project) => (
-          <ProjectCard project={project} />
+          <ProjectCard project={project}  />
         ))}
       </div>
     </div>
@@ -36,4 +39,39 @@ import '../styles/global.css';
       <a href="https://github.com/johndoe">GitHub</a>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('nav');
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          if (nav) nav.style.display = 'none';
+        });
+      });
+    });
+  </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('nav');
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          if (nav) nav.style.display = 'none';
+        });
+
+        const closeButton = card.querySelector('.close');
+        if (closeButton) {
+          closeButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the click event from propagating to the card
+            if (nav) nav.style.display = 'block';
+          });
+        }
+      });
+    });
+  </script>
 </Layout>
+

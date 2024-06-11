@@ -58,23 +58,51 @@ html {
   }
   
   .card__inner {
-	margin: 15px;
-	width: 250px;
-	height: 350px;
-	padding: 30px;
-	position: relative;
-	cursor: pointer;
-	background-color: #b3b3b3;
-	color: #eceef1;
-	font-size: 1.5em;
-	text-transform: uppercase;
-	text-align: center;
-	transition: all 0.2s ease-in-out;
-  }
-  
-  .card__inner:after {
-	transition: all 0.3s ease-in-out;
-  }
+    margin: 15px;
+    width: 250px;
+    height: 100px;
+    padding: 30px;
+    position: relative;
+    cursor: pointer;
+    background-color: #0078d4; /* Use the same background color as the folder */
+    color: #aaaaaa;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 10px; /* Match the border radius of the folder */
+    transition: all 0.2s ease-in-out;
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15)); /* Match the drop shadow effect */
+}
+
+.card__inner::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Adjust tab position */
+    left: 26%; /* Center the tab */
+    transform: translateX(-50%);
+    width: 115px; /* Adjust the width of the trapezoid */
+    height: 30px; /* Adjust the height of the trapezoid */
+    background-color: #0078d4; /* Windows folder tab color */
+	border-radius: 30px 30px 10px 10px; /* Top corners rounded */
+    z-index: 1; /* Ensure tab is above modal content */
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* Define inverted trapezoid shape */
+    z-index: 1; /* Ensure tab is above modal content */
+}
+
+.card__inner::after {
+    content: "";
+    position: absolute;
+    top: -10px; /* Adjust rectangle position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 40px); /* Adjust rectangle width */
+    height: calc(100% + 20px); /* Adjust rectangle height */
+    border: 1px solid #0078d4; /* Border color of the rectangle */
+    border-radius: 10px; /* Border radius of the rectangle */
+    z-index: -1; /* Ensure rectangle is below modal content */
+    box-shadow: 0 0 0 10px #0078d4 inset; /* Inner shadow to simulate border inside */
+    transition: all 0.3s ease-in-out;
+}
   
   .card__inner .fa {
 	width: 100%;
@@ -232,19 +260,23 @@ html {
 	}
   
   }
+
+  
   
   /* Modal Styles */
 .modal {
 	display: none;
 	position: fixed;
-	z-index: 1;
+	z-index: 100;
 	left: 0;
 	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	overflow: auto;
 	background-color: rgba(0, 0, 0, 0.4);
   }
+
+  
   
   .modal-content {
 	background-color: #fafafa; /* Use the same background color as the folder */
@@ -253,8 +285,9 @@ html {
 	border: none; /* Remove border */
 	border-radius: 10px; /* Match the border radius of the folder */
 	position: relative;
+	height: 1200px;
 	width: 80%;
-	max-width: 400px;
+	max-width: 700px;
 	text-align: center;
 	filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15)); /* Match the drop shadow effect */
   }
@@ -274,32 +307,6 @@ html {
 	cursor: pointer;
   }
   
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-  
-  .modal-content {
-	background-color: ;
-	margin: 15% auto;
-	padding: 20px;
-	border: none;
-	border-radius: 10px;
-	position: relative;
-	width: 80%;
-	max-width: 400px;
-	text-align: center;
-	filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15));
-  }
 
   .modal-content::before {
     content: "";
