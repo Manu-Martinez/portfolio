@@ -16,14 +16,30 @@ html {
 	padding: 0 20px;
   }
   
+  .nav {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	top: 5px;
+	left: 0;
+	right: 0;
+	z-index: 50;
+	margin: 20px;
+	animation-name: nav;
+	animation-duration: 2.5s;
+	animation-iteration-count: 1;
+  }
+  
+
   nav ul {
+	margin: 100px;
 	list-style-type: none;
 	padding: 0;
   }
   
   nav ul li {
 	display: inline;
-	margin-right: 20px;
+	margin-right: 30px;
   }
   
   nav ul li a {
@@ -62,7 +78,6 @@ html {
     width: 250px;
     height: 100px;
     padding: 30px;
-    position: relative;
     cursor: pointer;
     background-color: #0078d4; /* Use the same background color as the folder */
     color: #aaaaaa;
@@ -70,9 +85,12 @@ html {
     text-transform: uppercase;
     text-align: center;
     border-radius: 10px; /* Match the border radius of the folder */
+	border: 2px solid transparent;
     transition: all 0.2s ease-in-out;
     filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15)); /* Match the drop shadow effect */
+	animation: moveLine 5s alternate infinite;
 }
+
 
 .card__inner::before {
     content: "";
@@ -85,8 +103,9 @@ html {
     background-color: #0078d4; /* Windows folder tab color */
 	border-radius: 30px 30px 10px 10px; /* Top corners rounded */
     z-index: 1; /* Ensure tab is above modal content */
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* Define inverted trapezoid shape */
-    z-index: 1; /* Ensure tab is above modal content */
+    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 0% 50%); /* Define inverted trapezoid shape */
+	border: 2px solid transparent;
+	animation: moveLine 5s alternate infinite;
 }
 
 .card__inner::after {
@@ -97,11 +116,22 @@ html {
     transform: translateX(-50%);
     width: calc(100% + 40px); /* Adjust rectangle width */
     height: calc(100% + 20px); /* Adjust rectangle height */
-    border: 1px solid #0078d4; /* Border color of the rectangle */
+    border: 2px solid green; /* Border color of the rectangle */
     border-radius: 10px; /* Border radius of the rectangle */
-    z-index: -1; /* Ensure rectangle is below modal content */
     box-shadow: 0 0 0 10px #0078d4 inset; /* Inner shadow to simulate border inside */
     transition: all 0.3s ease-in-out;
+}
+
+@keyframes moveLine {
+    0% {
+        border-color: transparent; /* Initial position */
+    }
+    50% {
+        border-color: green; /* Move right */
+    }
+    100% {
+        border-color: transparent; /* Return to initial position */
+    }
 }
   
   .card__inner .fa {
