@@ -18,11 +18,11 @@ const { project } = Astro.props;
 			<a href={project.html_url} target="_blank">{project.name}</a>
 		</div>
 		<br>
-			<div class="tags">
-				{project.tags.map((tag: string) => (
-				  <span class="tag">{tag}</span>
-				))}
-			  </div>
+		<div class="tags">
+			{project.tags || [].map((tag: string) => (
+			  <span class="tag">{tag}</span>
+			))}
+		  </div>
 		</br>
 	  </div>
 	</div>

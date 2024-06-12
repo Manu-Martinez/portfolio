@@ -39,39 +39,74 @@ import '../styles/global.css';
       <a href="https://github.com/johndoe">GitHub</a>
     </div>
   </section>
-
+  
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const nav = document.querySelector('nav');
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach(card => {
-        card.addEventListener('click', () => {
-          if (nav) nav.style.display = 'none';
-        });
-      });
-    });
-  </script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const nav = document.querySelector('nav');
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach(card => {
-        card.addEventListener('click', () => {
-          if (nav) nav.style.display = 'none';
-        });
-
-        const closeButton = card.querySelector('.close');
-        if (closeButton) {
-          closeButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent the click event from propagating to the card
-            if (nav) nav.style.display = 'block';
-          });
-        }
-      });
-    });
-  </script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  const nav = document.querySelector('nav');
+	  const cards = document.querySelectorAll('.card');
+	  const modals = document.querySelectorAll('.modal');
+	  const closeButtons = document.querySelectorAll('.close');
+	
+	  const showNavbar = () => {
+		if (nav) {
+		  nav.style.display = 'block';
+		}
+	  };
+	
+	  const hideNavbar = () => {
+		if (nav) {
+		  nav.style.display = 'none';
+		}
+	  };
+	
+	  // Function to check if the click occurred inside any modal
+	  const clickedInsideModal = (event) => {
+		for (let modal of modals) {
+		  if (modal.contains(event.target)) {
+			return true;
+		  }
+		}
+		return false;
+	  };
+	
+	  // Event listener for clicks outside the modals and cards
+	  document.addEventListener('click', (event) => {
+		const clickedInsideCard = Array.from(cards).some(card => card.contains(event.target));
+		const clickedInsideAnyModal = clickedInsideModal(event);
+	
+		if (!clickedInsideCard && !clickedInsideAnyModal) {
+		  showNavbar(); // Show the navbar when clicking outside the cards and modals
+		}
+	  });
+	
+	  // Event listeners for each card
+	  cards.forEach(card => {
+		const closeButton = card.querySelector('.close');
+	
+		// Event listener for clicks inside the card (excluding the close button)
+		card.addEventListener('click', (event) => {
+		  if (!closeButton || event.target !== closeButton) {
+			hideNavbar();
+		  }
+		});
+	
+		// Event listener for the close button inside the card
+		if (closeButton) {
+		  closeButton.addEventListener('click', (event) => {
+			event.stopPropagation(); // Prevent the click event from propagating further
+			showNavbar(); // Show the navbar when the close button is clicked
+		  });
+		}
+	  });
+	
+	  // Event listener for clicks outside the opened modal
+	  document.addEventListener('click', (event) => {
+		if (event.target.classList.contains('modal') && event.target.style.display === 'block') {
+		  showNavbar(); // Show the navbar when clicking outside the opened modal
+		}
+	  });
+	
+	});
+	</script>
+	
 </Layout>
-
