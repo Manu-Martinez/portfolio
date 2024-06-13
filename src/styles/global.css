@@ -8,6 +8,7 @@ html {
 	margin: 0;
 	padding: 0;
 	background-color: #142b4d;
+	color: #fafafa;
   }
   
   .container {
@@ -119,7 +120,7 @@ html {
     padding: 30px;
     cursor: pointer;
     background-color: #0078d4; /* Use the same background color as the folder */
-    color: #aaaaaa;
+    color: #fafafa;
     font-size: 1.5em;
     text-transform: uppercase;
     text-align: center;
