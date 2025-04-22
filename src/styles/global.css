@@ -40,7 +40,7 @@
   }
   
   a:hover {
-	color: var(--primary);
+	color: var(--white);
   }
   
   /* Reusable styles */
@@ -52,6 +52,7 @@
 	border-radius: 8px;
 	font-weight: 500;
 	transition: background 0.3s, transform 0.2s;
+	font-family: 'inter', 'sans-serif';
   }
   
   .btn:hover {
