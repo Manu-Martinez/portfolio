@@ -1,0 +1,84 @@
+
+
+<nav class="navbar">
+	<div class="logo">Manuel Martínez</div>
+	<ul class="nav-links">
+	  <li><a href="#home">Inicio</a></li>
+	  <li><a href="#about">Sobre Mí</a></li>
+	  <li><a href="#data-projects">Proyectos de Datos</a></li>
+	  <li><a href="#dev-projects">Proyectos de Desarrollo</a></li>
+	  <li><a href="#contact">Contacto</a></li>
+	</ul>
+  </nav>
+  <style>
+	.navbar {
+	  position: sticky;
+	  top: 0;
+	  background: var(--primary);
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 24px 40px;
+	  z-index: 1000;
+	}
+	.logo {
+	  font-size: 1.5rem;
+	  font-weight: 700;
+	  color: #fff;
+	  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	  transition: transform 0.3s, color 0.3s;
+	}
+	.logo:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+    color: var(--highlight); /* Highlight color on hover */
+	}
+	.nav-links {
+	  display: flex;
+	  list-style: none;
+	}
+	.nav-links li {
+	  margin-left: 24px;
+	}
+	.nav-links a {
+	  font-size: 1rem;
+	  font-weight: 500;
+	  color: #fff;
+	  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	  transition: color 0.3s;
+	  position: relative;
+	}
+	.nav-links a:hover {
+	color: var(--highlight); /* Highlight color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+	}
+	.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after {
+    width: 100%; /* Underline effect on hover */
+  }
+	@media (max-width: 768px) {
+	  .navbar {
+		flex-direction: column;
+		padding: 12px 0;
+	  }
+	  .nav-links {
+		margin-top: 12px;
+		flex-wrap: wrap;
+		justify-content: center;
+	  }
+	  .nav-links li {
+		margin: 8px 12px;
+	  }
+	}
+  </style>
+  
+  
