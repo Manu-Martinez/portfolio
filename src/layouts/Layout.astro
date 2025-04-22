@@ -3,17 +3,35 @@
 // This layout wraps the content with common HTML structure
 import "../styles/global.css";
 
-import Footer from "../components/Footer.astro";
+// Define the props with types
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
+
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Web Developer Portfolio</title>
-  </head>
-  <body>
-    <slot />
-    <Footer />
-  </body>
+
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title || "Manuel Martínez - Analista de Datos"}</title>
+  <meta name="description" content={description || "Portfolio de Manuel Martínez, Analista de Datos especializado en análisis de datos y visualizaciones."} />
+  <style>
+    @import '../styles/global.css';
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+</head>
+<body>
+  <slot />
+</body>
 </html>
+
+
