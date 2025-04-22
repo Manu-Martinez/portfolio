@@ -1,120 +1,45 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/nav/Nav.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import DataProjects from '../components/DataProjects.astro';
+import DevProjects from '../components/DevProjects.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import projects from "../projectsData";
-import '../styles/global.css';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<div id="nav-about-background">
-		<Nav />
-		<section id="about" class="section">
-		  <div class="container">
-			<div class="overlay">
-			  <h2>About Me</h2>
-			  <p>I'm a passionate web developer with expertise in HTML, CSS, JavaScript, and more. I love creating responsive, user-friendly websites that make an impact.</p>
-			</div>
-		  </div>
-		</section>
-	  </div>
-	
-
-	  <div id="projects-contact-background">
-		<section id="projects" class="section">
-		  <div class="container">
-			<div class="overlay">
-			  <h2>Projects</h2>
-			  <div class="cards">
-				{projects.map((project) => (
-				  <ProjectCard project={project} />
-				))}
-			  </div>
-			</div>
-		  </div>
-		</section>
-	
-		<section id="contact" class="section">
-		  <div class="container">
-			<div class="overlay">
-			  <h2>Contact Me</h2>
-			  <p>Want to work together or just say hi? Feel free to get in touch!</p>
-			  <a href="mailto:john@example.com">Email</a>
-			  <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
-			  <a href="https://github.com/johndoe">GitHub</a>
-			</div>
-		  </div>
-		</section>
-	  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const nav = document.querySelector('nav');
-      const cards = document.querySelectorAll('.card');
-      const modals = document.querySelectorAll('.modal');
-      const closeButtons = document.querySelectorAll('.close');
-
-      const showNavbar = () => {
-        if (nav) {
-          nav.style.display = 'block';
-        }
-      };
-
-      const hideNavbar = () => {
-        if (nav) {
-          nav.style.display = 'none';
-        }
-      };
-
-      // Function to check if the click occurred inside any modal
-      const clickedInsideModal = (event) => {
-        for (let modal of modals) {
-          if (modal.contains(event.target)) {
-            return true;
-          }
-        }
-        return false;
-      };
-
-      // Event listener for clicks outside the modals and cards
-      document.addEventListener('click', (event) => {
-        const clickedInsideCard = Array.from(cards).some(card => card.contains(event.target));
-        const clickedInsideAnyModal = clickedInsideModal(event);
-
-        if (!clickedInsideCard && !clickedInsideAnyModal) {
-          showNavbar(); // Show the navbar when clicking outside the cards and modals
-        }
-      });
-
-      // Event listeners for each card
-      cards.forEach(card => {
-        const closeButton = card.querySelector('.close');
-
-        // Event listener for clicks inside the card (excluding the close button)
-        card.addEventListener('click', (event) => {
-          if (!closeButton || event.target !== closeButton) {
-            hideNavbar();
-          }
-        });
-
-        // Event listener for the close button inside the card
-        if (closeButton) {
-          closeButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent the click event from propagating further
-            showNavbar(); // Show the navbar when the close button is clicked
-          });
-        }
-      });
-
-      // Event listener for clicks outside the opened modal
-      document.addEventListener('click', (event) => {
-        if (event.target.classList.contains('modal') && event.target.style.display === 'block') {
-          showNavbar(); // Show the navbar when clicking outside the opened modal
-        }
-      });
-
-    });
-  </script>
-
-</Layout>
+<Layout title="Manu Martínez - Data Analyst">
+	<Navbar />
+	<Hero />
+	<About />
+	<DataProjects>
+	  <ProjectCard
+		title="Análisis de Ventas"
+		description="Análisis de datos de ventas con Python y Power BI, identificando tendencias y oportunidades."
+		image="/images/data-project1.jpg"
+		github="https://github.com/Manu-Martinez/Analisis-Matriculacion-Vehiculos-Argentina"
+		demo="https://powerbi.com/tu-dashboard"
+	  />
+	  <!-- Agrega más proyectos de datos aquí -->
+	</DataProjects>
+	<DevProjects>
+	  <ProjectCard
+		title="Prompt Library"
+		description="Aplicación web para compartir AI prompts."
+		image="/images/dev-project1.jpg"
+		github="https://github.com/Manu-Martinez/prompt_library"
+		demo="https://prompt-library-six.vercel.app/"
+	  />
+	  <!-- Agrega más proyectos de desarrollo aquí -->
+	</DevProjects>
+	<Contact />
+	<Footer />
+	<script>
+		import '../scripts/main.js';
+	  </script>	
+  </Layout>
+  
+  
