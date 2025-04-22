@@ -1,6 +1,6 @@
 # Portfolio de Manuel Martínez 🌐
 
-¡Bienvenido/a a mi portfolio personal! Soy **Manuel Martínez**, un **Data Analyst** y desarrollador web apasionado por transformar datos en decisiones estratégicas y crear experiencias digitales impactantes. Este sitio muestra mis proyectos de análisis de datos, desarrollo web, y habilidades técnicas.
+¡Bienvenido a mi portfolio personal! Soy **Manuel Martínez**, un **Data Analyst** y desarrollador web apasionado por transformar datos en decisiones estratégicas y crear experiencias digitales impactantes. Este sitio muestra mis proyectos de análisis de datos, desarrollo web, y habilidades técnicas.
 
 **[Visita mi portfolio en línea](https://manumartinez.com)** (enlace actualizado tras el despliegue en Netlify)
 
