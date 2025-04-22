@@ -1,14 +1,62 @@
-/* src/styles/global.css */
-html {
-	scroll-behavior: smooth;
+/* Variables */
+:root {
+	--primary: #1A3C5E; /* Deep blue */
+	--secondary: #4B6A88; /* Blue-gray */
+	--accent: #F5F6F5; /* Off-white */
+	--text: #2D2D2D; /* Dark gray */
+	--bg-dark: #1F252E; /* Dark footer */
+	--white: #FFFFFF; /* Pure white */
+	--highlight: #2A9D8F; /* Green accent */
+	--light-blue: #E3F0FA; /* Light blue for gradients */
+	--gray-blue: #D9E4EC; /* Gray-blue for gradients */
+	--cyan-blue: #4DA8DA; /* Vibrant cyan-blue for gradient */
+  }
+  
+  /* Reset */
+  * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
   }
   
   body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #142b4d;
-	color: #fafafa;
+	font-family: 'Inter', sans-serif;
+	line-height: 1.6;
+	color: var(--text);
+	background: linear-gradient(135deg, var(--primary) 0%, var(--highlight) 100%);
+	position: relative;
+	overflow-x: hidden;
+  }
+  
+  h1, h2, h3 {
+	line-height: 1.2;
+	font-weight: 600;
+  }
+  
+  a {
+	text-decoration: none;
+	color: var(--highlight);
+	transition: color 0.3s;
+  }
+  
+  a:hover {
+	color: var(--primary);
+  }
+  
+  /* Reusable styles */
+  .btn {
+	display: inline-block;
+	padding: 12px 24px;
+	background: var(--highlight);
+	color: #fff;
+	border-radius: 8px;
+	font-weight: 500;
+	transition: background 0.3s, transform 0.2s;
+  }
+  
+  .btn:hover {
+	background: #247F73;
+	transform: translateY(-2px);
   }
   
   .container {
@@ -17,442 +65,24 @@ html {
 	padding: 0 20px;
   }
   
-  .nav {
-	position: fixed;
-	display: flex;
-	justify-content: center;
-	top: 5px;
-	left: 0;
-	right: 0;
-	z-index: 50;
-	margin: 20px;
-	animation-name: nav;
-	animation-duration: 2.5s;
-	animation-iteration-count: 1;
+  /* Decorative line for section separation */
+  .section-divider {
+	width: 80px;
+	height: 4px;
+	background: var(--highlight);
+	margin: 24px auto;
+	border-radius: 2px;
   }
   
-
-  nav ul {
-	margin: 100px;
-	list-style-type: none;
-	padding: 0;
-  }
-  
-  nav ul li {
-	display: inline;
-	margin-right: 30px;
-  }
-  
-  nav ul li a {
-	color: #fff;
-	text-decoration: none;
-  }
-
-  .navBtns {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 50;
-	backdrop-filter: blur(2px); /* Adjust blur intensity as needed */
-	overflow: hidden; /* Hide overflow content */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-  
-  .section {
-	padding: 50px 0;
-	background-size: cover;
-	background-position: center;
-  }
-  
-  .project {
-	margin-bottom: 30px;
-  }
-
-  #nav-about-background {
-	position: relative;
-	background-image: url('src/assets/images/nav-about-background.gif');
-	background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px 0;
-  }
-  
-
-  #projects-contact-background {
-	position: relative;
-    padding: 20px 0;
-  }
-
-  #projects-contact-background::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: url('/src/assets/images/projects-contact-background.gif');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	filter: blur(30px);
-	z-index: -1;
-  }
-
-  .overlay {
-	background-color: rgba(20, 43, 77, 0.8); /* Semi-transparent background color */
-	padding: 40px;
-	border-radius: 10px;
-	text-align: center;
-	max-width: 800px;
-	margin: 0 auto;
-  }
-
-  footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 20px 0;
-  }
-  
-  /* Expanding Card Grid Styles */
-  .card {
-	margin: 15px;
-	width: 250px; /* Set a fixed width for the card */
-	height: 350px; /* Set a fixed height for the card */
-	transition: all 0.2s ease-in-out;
-	display: inline-flex;
-	vertical-align: top; /* Align cards at the top */
-	box-sizing: border-box;
-  }
-  
-  .card__inner {
-    margin: 15px;
-    width: 250px;
-    height: 100px;
-    padding: 30px;
-    cursor: pointer;
-    background-color: #0078d4; /* Use the same background color as the folder */
-    color: #fafafa;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 10px; /* Match the border radius of the folder */
-	border: 2px solid transparent;
-    transition: all 0.2s ease-in-out;
-    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15)); /* Match the drop shadow effect */
-	animation: moveLine 5s alternate infinite;
-}
-
-
-.card__inner::before {
-    content: "";
-    position: absolute;
-    top: -10px; /* Adjust tab position */
-    left: 26%; /* Center the tab */
-    transform: translateX(-50%);
-    width: 115px; /* Adjust the width of the trapezoid */
-    height: 30px; /* Adjust the height of the trapezoid */
-    background-color: #0078d4; /* Windows folder tab color */
-	border-radius: 30px 30px 10px 10px; /* Top corners rounded */
-    z-index: 1; /* Ensure tab is above modal content */
-    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 0% 50%); /* Define inverted trapezoid shape */
-	border: 2px solid transparent;
-	animation: moveLine 5s alternate infinite;
-}
-
-.card__inner::after {
-    content: "";
-    position: absolute;
-    top: -10px; /* Adjust rectangle position */
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% + 40px); /* Adjust rectangle width */
-    height: calc(100% + 20px); /* Adjust rectangle height */
-    border: 2px solid green; /* Border color of the rectangle */
-    border-radius: 10px; /* Border radius of the rectangle */
-    box-shadow: 0 0 0 10px #0078d4 inset; /* Inner shadow to simulate border inside */
-    transition: all 0.3s ease-in-out;
-}
-
-@keyframes moveLine {
-    0% {
-        border-color: transparent; /* Initial position */
-    }
-    50% {
-        border-color: green; /* Move right */
-    }
-    100% {
-        border-color: transparent; /* Return to initial position */
-    }
-}
-  
-  .card__inner .fa {
-	width: 100%;
-	margin-top: .25em;
-  }
-  
-  .card__expander {
-	transition: all 0.2s ease-in-out;
-	background-color: #595959;
-	margin: 15px;
-	width: 310px; /* Keep the expander the same width as the card */
-	position: absolute;
-	top: 100%; /* Position the expander directly below the card */
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-transform: uppercase;
-	color: #eceef1;
-	font-size: 1.5em;
-	max-height: 0; /* Start with a collapsed height */
-	overflow: hidden; /* Hide overflow content */
-  }
-  
-  .card__expander .fa {
-	font-size: 0.75em;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	cursor: pointer;
-  }
-  
-  .card__expander .fa:hover {
-	opacity: 0.9;
-  }
-  
-  .card__expander img {
-	max-width: 100%;
-	margin-bottom: 10px;
-  }
-  
-  .card__expander p {
-	margin: 10px 0;
-  }
-  
-  .card__expander a {
-	color: #007acc;
-	text-decoration: none;
-	margin-top: 10px;
-  }
-  
-  .card__expander a:hover {
-	text-decoration: underline;
-  }
-  
-  .card.is-collapsed .card__inner:after {
-	content: "";
-	opacity: 0;
-  }
-  
-  .card.is-collapsed .card__expander {
-	max-height: 0;
-	min-height: 0;
-	overflow: hidden;
-	margin-top: 0;
-	opacity: 0;
-  }
-  
-  .card.is-expanded .card__inner {
-	background-color: #1abc9c;
-  }
-  
-  .card.is-expanded .card__inner:after {
-	content: "";
-	opacity: 1;
-	display: block;
-	height: 0;
-	width: 0;
-	position: absolute;
-	bottom: -30px;
-	left: calc(50% - 15px);
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	border-bottom: 15px solid #333a45;
-  }
-  
-  .card.is-expanded .card__inner .fa:before {
-	content: "\f115";
-  }
-  
-  .card.is-expanded .card__expander {
-	max-height: 500px; /* Increase max-height to accommodate expanded content */
-	min-height: 200px; /* Set a minimum height for the expander */
-	overflow: visible;
-	margin-top: 30px;
-	opacity: 1;
-  }
-  
-  .card.is-expanded .card__inner:hover {
-	transform: scale(1);
-  }
-  
-  .card.is-inactive .card__inner {
-	pointer-events: none;
-	opacity: 0.5;
-  }
-  
-  .card.is-inactive .card__inner:hover {
-	background-color: #b3b3b3;
-	transform: scale(1);
-  }
-  
-  @media screen and (max-width: 991px) {
-	.card {
-	  width: 100%; /* Adjust to full width on smaller screens */
+  /* Responsive */
+  @media (max-width: 768px) {
+	.container {
+	  padding: 0 16px;
+	}
+	h1 {
+	  font-size: 2rem;
+	}
+	h2 {
+	  font-size: 1.5rem;
 	}
   }
-  
-  @media screen and (max-width: 767px) {
-	.card {
-	  width: 100%; /* Adjust to full width on smaller screens */
-	}
-  }
-  
-
-  //when 3 cards in a row
-@media screen and (min-width: 992px) {
-
-	.card:nth-of-type(3n+2) .card__expander {
-	  margin-left: calc(-100% - 30px);
-	}
-	.card:nth-of-type(3n+3) .card__expander {
-	  margin-left: calc(-200% - 60px);
-	}
-	.card:nth-of-type(3n+4) {
-	  clear: left;
-	}
-	.card__expander {
-	  width: calc(300% + 60px);
-	}
-  
-  }
-  
-  //when 2 cards in a row
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-  
-	.card:nth-of-type(2n+2) .card__expander {
-	  margin-left: calc(-100% - 30px);
-	}
-	.card:nth-of-type(2n+3) {
-	  clear: left;
-	}
-	.card__expander {
-	  width: calc(200% + 30px);
-	}
-  
-  }
-
-  
-  
-  /* Modal Styles */
-.modal {
-	display: none;
-	position: fixed;
-	z-index: 100;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  
-  
-  .modal-content {
-	background-color: #fafafa; /* Use the same background color as the folder */
-	margin: 15% auto;
-	padding: 20px;
-	border: none; /* Remove border */
-	border-radius: 10px; /* Match the border radius of the folder */
-	position: relative;
-	height: 1200px;
-	width: 80%;
-	max-width: 700px;
-	text-align: center;
-	filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15)); /* Match the drop shadow effect */
-  }
-  
-  .close {
-	color: white; /* Match the text color to the folder style */
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-  }
-  
-
-  .modal-content::before {
-    content: "";
-    position: absolute;
-    top: -25px; /* Adjust tab position */
-    left: 10%;
-    transform: translateX(-50%);
-    width: 100px; /* Adjust the width of the trapezoid */
-    height: 30px; /* Adjust the height of the trapezoid */
-    background-color: #0078d4; /* Windows folder tab color */
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* Define inverted trapezoid shape */
-    z-index: 1; /* Ensure tab is above modal content */
-}
-
-.modal-content::after {
-    content: "";
-    position: absolute;
-    top: -10px; /* Adjust rectangle position */
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% + 40px); /* Adjust rectangle width */
-    height: calc(100% + 20px); /* Adjust rectangle height */
-    border: 1px solid #0078d4; /* Border color of the rectangle */
-    border-radius: 10px; /* Border radius of the rectangle */
-    z-index: -1; /* Ensure rectangle is below modal content */
-	box-shadow: 0 0 0 20px #0078d4 inset; /* Border color of the rectangle */
-}
-  
-  .close {
-	color: white;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-  }
-  
-  /* Radio buttons styling */
-  input.variation {
-	display: none;
-  }
-  input.variation + label {
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-	color: white;
-  }
-  input.variation:checked + label .circle {
-	background: white;
-	box-shadow: inset 0 0 0 3px #3c1053;
-  }
-  input.variation + label .circle {
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	border: 3px solid white;
-  }
-  
