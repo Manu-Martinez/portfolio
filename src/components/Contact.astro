@@ -1,0 +1,47 @@
+<section id="contact" class="contact container">
+	<h2>Contáctame</h2>
+	<form action="https://formspree.io/f/tu-id" method="POST">
+	  <input type="text" name="name" placeholder="Nombre" required />
+	  <input type="email" name="email" placeholder="Correo Electrónico" required />
+	  <textarea name="message" placeholder="Tu Mensaje" required></textarea>
+	  <button type="submit" class="btn">Enviar</button>
+	</form>
+  </section>
+  <style>
+	.contact {
+	  padding: 80px 0;
+	  background: var(--accent); /* Off-white for consistency */
+	  text-align: center;
+	}
+	h2 {
+	  font-size: 2rem;
+	  margin-bottom: 32px;
+	  color: var(--primary);
+	}
+	form {
+	  max-width: 600px;
+	  margin: 0 auto;
+	  display: flex;
+	  flex-direction: column;
+	  gap: 16px;
+	}
+	input, textarea {
+	  padding: 12px;
+	  border: 1px solid #ccc;
+	  border-radius: 8px;
+	  font-size: 1rem;
+	  font-family: 'Inter', sans-serif;
+	  background: var(--white);
+	}
+	textarea {
+	  resize: vertical;
+	  min-height: 120px;
+	}
+	@media (max-width: 768px) {
+	  .contact {
+		padding: 48px 0;
+	  }
+	}
+  </style>
+  
+  
