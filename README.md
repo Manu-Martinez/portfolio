@@ -1,54 +1,27 @@
-# Astro Starter Kit: Basics
+# Portfolio de Manuel Martínez 🌐
 
-```sh
-npm create astro@latest -- --template basics
-```
+¡Bienvenido/a a mi portfolio personal! Soy **Manuel Martínez**, un **Data Analyst** y desarrollador web apasionado por transformar datos en decisiones estratégicas y crear experiencias digitales impactantes. Este sitio muestra mis proyectos de análisis de datos, desarrollo web, y habilidades técnicas.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+**[Visita mi portfolio en línea](https://manumartinez.com)** (enlace actualizado tras el despliegue en Netlify)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📸 Vista Previa
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![Vista previa del portfolio](https://via.placeholder.com/1200x600.png?text=Vista+Previa+del+Portfolio)  
+*(Actualiza esta imagen con una captura de pantalla real después del despliegue)*
 
-## 🚀 Project Structure
+## ✨ Características
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Diseño Moderno y Elegante**: Fondo gradiente azul-verde que refleja un estilo profesional y tecnológico.
+- **Navegación Intuitiva**: Navbar transparente de ancho completo con efectos hover para una experiencia interactiva.
+- **Animaciones Suaves**: Animaciones AOS (fade-up, zoom-in) para un toque dinámico.
+- **Secciones Claras**: Presentación personal, proyectos de datos, proyectos de desarrollo, y formulario de contacto.
+- **Responsive**: Optimizado para verse bien en dispositivos móviles y de escritorio.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 🛠️ Tecnologías Usadas
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **[Astro](https://astro.build/)**: Framework para construir sitios estáticos rápidos y modernos.
+- **HTML, CSS, JavaScript**: Para la estructura, estilos y funcionalidad.
+- **[AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)**: Para animaciones al hacer scroll.
+- **Formspree**: Para el formulario de contacto.
+- **Inter**: Fuente elegante y legible.
+- **Netlify**: Plataforma de despliegue (desplegado en `manumartinez.com`).
