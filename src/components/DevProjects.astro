@@ -1,0 +1,29 @@
+<section id="dev-projects" class="projects container">
+  <h2>Proyectos de Desarrollo</h2>
+  <div class="project-grid">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: 80px 0;
+    background: var(--white); /* White to differentiate from data projects */
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    color: var(--primary);
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .projects {
+      padding: 48px 0;
+    }
+  }
+</style>
