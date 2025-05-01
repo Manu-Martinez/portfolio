@@ -6,7 +6,7 @@
 
 ## 📸 Vista Previa
 
-![Vista previa del portfolio](https://github.com/Manu-Martinez/portfolio/raw/main/images/portfolio screenshot.png)  
+![Vista previa del portfolio](https://github.com/Manu-Martinez/portfolio/raw/main/images/portfolio-screenshot.png)  
 
 
 ## ✨ Características
