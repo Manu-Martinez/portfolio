@@ -2,11 +2,11 @@
 
 ¡Bienvenido a mi portfolio personal! Soy **Manuel Martínez**, un **Data Analyst** y desarrollador web apasionado por transformar datos en decisiones estratégicas y crear experiencias digitales impactantes. Este sitio muestra mis proyectos de análisis de datos, desarrollo web, y habilidades técnicas.
 
-**[Visita mi portfolio en línea](https://manumartinez.netlify.app/)** (enlace actualizado tras el despliegue en Netlify)
+**[Visita mi portfolio en línea](https://manumartinez.netlify.app/)** 
 
 ## 📸 Vista Previa
 
-![Vista previa del portfolio](https://github.com/Manu-Martinez/portfolio/raw/main/images/portfolio-screenshot.PNG)  
+![Vista previa del portfolio](https://github.com/Manu-Martinez/portfolio/blob/main/public/images/portfolio-screenshot.PNG)  
 
 
 ## ✨ Características
